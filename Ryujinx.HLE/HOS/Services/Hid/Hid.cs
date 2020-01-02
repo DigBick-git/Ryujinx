@@ -7,9 +7,9 @@ namespace Ryujinx.HLE.HOS.Services.Hid
     public class Hid
     {
         private readonly Switch _device;
-        private long _hidMemoryAddress;
+        private ulong _hidMemoryAddress;
 
-        internal ref HidSharedMemory SharedMemory => ref _device.Memory.GetStructRef<HidSharedMemory>(_hidMemoryAddress);
+        internal ref HidSharedMemory SharedMemory => ref _device.Memory.GetRef<HidSharedMemory>(_hidMemoryAddress, Horizon.HidSize);
         internal const int SharedMemEntryCount = 17;
 
         public DebugPadDevice DebugPad;
@@ -46,12 +46,12 @@ namespace Ryujinx.HLE.HOS.Services.Hid
             }
         }
 
-        public Hid(in Switch device, long sharedHidMemoryAddress)
+        public Hid(in Switch device, ulong sharedHidMemoryAddress)
         {
             _device = device;
             _hidMemoryAddress = sharedHidMemoryAddress;
 
-            device.Memory.FillWithZeros(sharedHidMemoryAddress, Horizon.HidSize);
+            device.Memory.ZeroFill(sharedHidMemoryAddress, Horizon.HidSize);
         }
 
         public void InitDevices()
