@@ -9,7 +9,7 @@ namespace Ryujinx.HLE.HOS.Services.Hid
         private readonly Switch _device;
         private ulong _hidMemoryAddress;
 
-        internal ref HidSharedMemory SharedMemory => ref _device.Memory.GetRef<HidSharedMemory>(_hidMemoryAddress, Horizon.HidSize);
+        internal ref HidSharedMemory SharedMemory => ref _device.Memory.GetRef<HidSharedMemory>(_hidMemoryAddress);
         internal const int SharedMemEntryCount = 17;
 
         public DebugPadDevice DebugPad;
