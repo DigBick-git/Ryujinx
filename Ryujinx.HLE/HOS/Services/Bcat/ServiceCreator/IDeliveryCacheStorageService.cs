@@ -36,7 +36,7 @@ namespace Ryujinx.HLE.HOS.Services.Bcat.ServiceCreator
 
                 directoryNameBuffer[DeliveryCacheDirectoryNameLength - 1] = 0x00;
                 
-                context.Memory.WriteBytes(outputPosition + index * DeliveryCacheDirectoryNameLength, directoryNameBuffer);
+                context.Memory.Write((ulong)(outputPosition + index * DeliveryCacheDirectoryNameLength), directoryNameBuffer);
             }
 
             context.ResponseData.Write(_deliveryCacheDirectories.Length);

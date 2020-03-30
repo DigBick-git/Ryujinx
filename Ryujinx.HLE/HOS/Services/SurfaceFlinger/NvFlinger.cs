@@ -250,7 +250,7 @@ namespace Ryujinx.HLE.HOS.Services.SurfaceFlinger
 
             byte[] reply = MakeParcel(data, new byte[0]);
 
-            context.Memory.WriteBytes(replyPos, reply);
+            context.Memory.Write((ulong)replyPos, reply);
 
             return ResultCode.Success;
         }
