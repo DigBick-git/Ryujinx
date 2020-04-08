@@ -1002,8 +1002,6 @@ namespace Ryujinx.Graphics.Gpu.Image
         {
             Info = info;
 
-            // _gmmRange = _context.PhysicalMemory.CreateMemoryRange(info.Address, (ulong)_sizeInfo.TotalSize, 1);
-
             _depth  = info.GetDepth();
             _layers = info.GetLayers();
         }
