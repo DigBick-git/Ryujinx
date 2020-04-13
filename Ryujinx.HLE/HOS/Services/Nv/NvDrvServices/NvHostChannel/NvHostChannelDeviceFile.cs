@@ -18,7 +18,7 @@ namespace Ryujinx.HLE.HOS.Services.Nv.NvDrvServices.NvHostChannel
 
         private GpuContext _gpu;
 
-        private ARMeilleure.Memory.MemoryManager _memory;
+        private Cpu.MemoryManager _memory;
 
         public NvHostChannelDeviceFile(ServiceCtx context) : base(context)
         {
